@@ -17,4 +17,4 @@ script:
   - docker images |grep ansible
   - docker run -ti --rm ansible/ansible ansible --version
   - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
-  - for arch in ${multiarch}; do docker buildx build --platform ${arch} --tag alpine/ansible --push . ; done
+  - for arch in ${multiarch}; do echo ${arch}; docker buildx build --platform ${arch} --tag alpine/ansible --push . ; done
