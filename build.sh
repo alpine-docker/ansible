@@ -29,5 +29,5 @@ echo $status
 
 if [[ ( "${status}" =~ "not found" ) ||( ${REBUILD} == "true" ) ]]; then
    echo "build image for ${tag}"
-   echo build_docker_image "${tag}" "${image}" "${platform}" "${build_arg}"
+   build_docker_image "${tag}" "${image}" "${platform}" "${build_arg}"
 fi
