@@ -22,10 +22,12 @@ install_jq
 tag=$(get_latest_release "${repo}")
 echo "Latest release is: ${tag}"
 
+build_arg="VERSION=${tag}"
+
 status=$(curl -sL https://hub.docker.com/v2/repositories/${image}/tags/${tag})
 echo $status
 
 if [[ ( "${status}" =~ "not found" ) ||( ${REBUILD} == "true" ) ]]; then
    echo "build image for ${tag}"
-   build_docker_image ${tag} ${build_arg} ${image} ${platform}
+   echo build_docker_image "${tag}" "${image}" "${platform}" "${build_arg}"
 fi
