@@ -22,6 +22,8 @@ install_jq
 tag=$(get_latest_release "${repo}")
 echo "Latest release is: ${tag}"
 
+tag=8.1.0
+
 build_arg="VERSION=${tag}"
 
 status=$(curl -sL https://hub.docker.com/v2/repositories/${image}/tags/${tag})
