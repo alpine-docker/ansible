@@ -1,6 +1,8 @@
 FROM python:3-alpine
 
-RUN apk add --update --no-cache ansible bash openssh
+ARG VERSION
+
+RUN apk add --update --no-cache ansible==${VERSION} bash openssh
 
 ENTRYPOINT []
 CMD ["ansible", "--help"]
